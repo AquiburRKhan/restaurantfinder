@@ -1,0 +1,21 @@
+.restaurant-finder-div{
+  background-color: #c4c9d4;
+  height: 300px;
+  position: relative;
+  & .restaurant-finder-form{
+    margin: 120px auto;
+    & .form-group{
+      padding: 0 15px;
+    }
+  }
+}
+
+.random-search{
+  margin-bottom: 15px!important;
+  padding: 0 15px!important;
+}
+
+.main-search{
+  margin-bottom: 15px!important;
+  padding: 0 15px!important;
+}
