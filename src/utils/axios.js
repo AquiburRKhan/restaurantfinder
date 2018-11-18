@@ -10,3 +10,9 @@ export const searchNearbyRestaurants = (searchTerm) => {
     return axios.get('https://api.foursquare.com/v2/venues/explore?client_id=' + ClientID +
         '&client_secret=' + ClientSecret + '&v=' + versioning + '&limit=10&ll=' + longLat + '&radius=' + radius + '&query=' + searchTerm);
 };
+
+export const searchForRandomRestaurants = () => {
+    let limit = 50;
+    return axios.get('https://api.foursquare.com/v2/venues/explore?client_id=' + ClientID + '&section=food' +
+        '&client_secret=' + ClientSecret + '&v=' + versioning + '&limit=10&ll=' + longLat + '&radius=' + radius + '&limit=' + limit);
+};

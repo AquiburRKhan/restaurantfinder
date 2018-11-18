@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, FormGroup, ControlLabel ,FormControl ,Button } from 'react-bootstrap';
-import { searchNearbyRestaurants } from './utils/axios';
+import { searchNearbyRestaurants,searchForRandomRestaurants } from './utils/axios';
 import RestaurantPanel from './components/RestaurantPanel';
 import './styles/index.scss';
 
@@ -23,7 +23,12 @@ class App extends Component {
     }
 
     searchRandomRestaurant(){
-
+        searchForRandomRestaurants().then((response) => {
+            this.setState({restaurants: [response.data.response.groups[0].items[Math.floor((Math.random() * 50))]]});
+        }).catch(function (error) {
+            // handle error
+            // console.log(error);
+        });
     }
 
     showRestaurantDetails(restaurant){
@@ -38,7 +43,6 @@ class App extends Component {
         }
 
         searchNearbyRestaurants(this.state.searchTerm).then((response) => {
-            console.log(response.data.response.groups[0].items)
             this.setState({restaurants: response.data.response.groups[0].items});
         }).catch(function (error) {
                 // handle error
