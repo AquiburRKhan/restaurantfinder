@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, FormGroup, ControlLabel ,FormControl ,Button } from 'react-bootstrap';
 import { searchNearbyRestaurants } from './utils/axios';
+import RestaurantPanel from './components/RestaurantPanel';
 import './styles/index.scss';
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.searchRestaurants = this.searchRestaurants.bind(this);
         this.searchRandomRestaurant = this.searchRandomRestaurant.bind(this);
+        this.showRestaurantDetails = this.showRestaurantDetails.bind(this);
         this.state = {
             searchTerm: '',
             restaurants: []
@@ -24,14 +26,23 @@ class App extends Component {
 
     }
 
-    searchRestaurants(){
+    showRestaurantDetails(restaurant){
+        return (
+            <RestaurantPanel key={restaurant.venue.id} restaurant={restaurant} />
+        );
+    }
+
+    searchRestaurants(e){
+        if(e){
+            e.preventDefault();
+        }
+
         searchNearbyRestaurants(this.state.searchTerm).then((response) => {
             console.log(response.data.response.groups[0].items)
             this.setState({restaurants: response.data.response.groups[0].items});
-        })
-            .catch(function (error) {
+        }).catch(function (error) {
                 // handle error
-                console.log(error);
+                // console.log(error);
             });
     }
 
@@ -40,7 +51,7 @@ class App extends Component {
             <Grid fluid={true}>
               <Row className="show-grid restaurant-finder-div">
                 <Col xs={12} md={8} mdOffset={2} lg={8} lgOffset={2}>
-                  <form className="restaurant-finder-form">
+                  <form onSubmit={this.searchRestaurants} className="restaurant-finder-form">
                     <FormGroup>
                       <ControlLabel>Search Restaurants</ControlLabel>
                       <FormControl
@@ -66,13 +77,9 @@ class App extends Component {
                   </form>
                 </Col>
               </Row>
-              <Row className="show-grid">
+              <Row className="show-grid restaurant-details">
                   {
-                      this.state.restaurants.map(function(restaurant, i){
-                          return (
-                              <Col key={restaurant.venue.id} xs={3} md={3}>restaurant</Col>
-                          );
-                      })
+                      this.state.restaurants.map(this.showRestaurantDetails)
                   }
               </Row>
             </Grid>

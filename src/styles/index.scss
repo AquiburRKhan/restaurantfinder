@@ -1,5 +1,7 @@
+@import "theme";
+
 .restaurant-finder-div{
-  background-color: #c4c9d4;
+  background-color: $searchDivBackground;
   height: 300px;
   position: relative;
   & .restaurant-finder-form{
@@ -18,4 +20,21 @@
 .main-search{
   margin-bottom: 15px!important;
   padding: 0 15px!important;
+}
+
+.restaurant-details{
+  margin: 30px 0 0 0;
+  text-align: center;
+  & img{
+    background-color: $iconBackground;
+  }
+  & .restaurant-info{
+    padding-top: 15px;
+    & p{
+      margin: 0!important;
+    }
+  }
+  & .panel {
+    cursor: pointer;
+  }
 }
