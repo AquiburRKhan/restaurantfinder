@@ -29,7 +29,7 @@ class RestaurantPanel extends Component {
         const address = restaurant.venue.location.address || 'Dhaka, Bangladesh';
         return (
             <Col xs={12} sm={12} md={6} lg={6}>
-                <Panel onClick={this.handleModalShow}>
+                <Panel id="restaurant-panel" onClick={this.handleModalShow}>
                     <Panel.Heading>
                         <Panel.Title componentClass="h3">{restaurant.venue.name}</Panel.Title>
                     </Panel.Heading>

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "enzyme": "^3.7.0",
     "google-map-react": "^1.1.0",
     "node-sass": "^4.10.0",
     "react": "^16.6.3",
@@ -25,5 +26,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "enzyme-adapter-react-16": "^1.7.0"
+  }
 }

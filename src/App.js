@@ -68,12 +68,14 @@ class App extends Component {
                     <Col xs={12} md={6} className="random-search">
                       <Button
                           block
+                          id="random-search"
                           onClick={this.searchRandomRestaurant}>Feeling lazy
                       </Button>
                     </Col>
                     <Col xs={12} md={6} className="main-search">
                       <Button
                           block
+                          id="search-with-keyword"
                           onClick={this.searchRestaurants}
                           bsStyle="primary">Search
                       </Button>

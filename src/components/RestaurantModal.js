@@ -24,7 +24,7 @@ class RestaurantModal extends Component {
             zoom: 18
         };
         return (
-            <Modal show={ showModal } onHide={this.handleOnHide}>
+            <Modal id="restaurant-modal" show={ showModal } onHide={this.handleOnHide}>
                 <Modal.Header closeButton>
                     <Modal.Title>{restaurant.venue.name}</Modal.Title>
                 </Modal.Header>
