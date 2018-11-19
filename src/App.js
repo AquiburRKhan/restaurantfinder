@@ -18,6 +18,12 @@ class App extends Component {
         };
     }
 
+    showRestaurantDetails(restaurant){
+        return (
+            <RestaurantPanel key={restaurant.venue.id} restaurant={restaurant} />
+        );
+    }
+
     handleInputChange(e) {
         this.setState({ searchTerm: e.target.value });
     }
@@ -29,12 +35,6 @@ class App extends Component {
             // handle error
             // console.log(error);
         });
-    }
-
-    showRestaurantDetails(restaurant){
-        return (
-            <RestaurantPanel key={restaurant.venue.id} restaurant={restaurant} />
-        );
     }
 
     searchRestaurants(e){
