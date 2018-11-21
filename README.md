@@ -1,5 +1,6 @@
 # Restaurant Finder
-### Instructions
+### Live Demo
+[Live Demo](https://aquiburrkhan.github.io/restaurantfinder/)
 #### `npm install` or `yarn install`
 Installs all the packages/dependencies of the project
 #### `npm start` or `yarn start`
